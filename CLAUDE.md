@@ -104,7 +104,7 @@ After delivering, ask whether to **file the output back into the wiki** (e.g., p
 When asked to "lint", "audit", or "clean up" the wiki, run health checks:
 
 - **Orphans:** articles with no inbound links
-- **Dangling links:** `[[wikilinks]]` pointing to nonexistent files
+- **Dangling links:** markdown links pointing to nonexistent files (`tools/convert_wikilinks.py` reports these too)
 - **Stubs:** concept articles under ~100 words that should be fleshed out
 - **Inconsistencies:** contradictory claims across articles (flag, do not silently resolve — ask the user)
 - **Missing data:** gaps you can fill via `WebSearch`/`WebFetch` (propose imputations, do not silently invent)
@@ -118,7 +118,7 @@ Report findings as a checklist; act only on items the user approves, unless they
 ## Conventions
 
 - **Frontmatter** on every wiki file. At minimum: `title`, `tags`, `updated`. Source summaries also need `raw_path` and `source_url`.
-- **Wikilinks over markdown links** for internal navigation (`[[concepts/attention]]`, not `./concepts/attention.md`). Markdown links are fine for external URLs.
+- **Standard relative markdown links** for internal navigation (`[concepts/attention](../concepts/attention.md)`). These render correctly in **both Obsidian and GitHub** — Obsidian-style `[[wikilinks]]` show up as broken literal text on GitHub. Use `tools/convert_wikilinks.py` to fix any stragglers.
 - **Math:** LaTeX (`$...$`, `$$...$$`) — but always also explain it in words.
 - **Figures:** describe what each figure shows; don't say "see Figure 3" without context. Embed images with `![alt](../assets/foo.png)`.
 - **Faithfulness:** quote sparingly, paraphrase mostly. Never fabricate numbers, citations, or quotes. If unsure, say so.
@@ -135,7 +135,7 @@ Report findings as a checklist; act only on items the user approves, unless they
 3. **Small, frequent commits.** After each ingest or significant edit, summarize what changed in 1–2 sentences so the user can audit.
 4. **Be honest about coverage.** If the wiki doesn't know, say so. Don't paper over gaps with plausible-sounding text.
 5. **Tools beat ad-hoc work.** If you find yourself doing the same thing twice (e.g., scraping, slug-generation, link-checking), propose adding it to `tools/`.
-6. **Obsidian is the user's view.** Anything you write should render cleanly there — wikilinks, embedded images, Marp slides, mermaid diagrams all welcome.
+6. **Obsidian + GitHub are the user's views.** Anything you write should render cleanly in both — use standard relative markdown links (not `[[wikilinks]]`), embed images with relative paths, Marp slides and mermaid diagrams are welcome.
 
 ---
 

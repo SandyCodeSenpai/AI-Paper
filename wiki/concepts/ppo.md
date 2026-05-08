@@ -9,7 +9,7 @@ aliases: [PPO]
 
 ## What it is
 
-A policy-gradient RL algorithm (Schulman et al. 2017) that optimizes a stochastic policy with a **clipped surrogate objective**, preventing destructively large updates while still being sample-efficient. The default RL algorithm for [[concepts/rlhf|RLHF]] in language models.
+A policy-gradient RL algorithm (Schulman et al. 2017) that optimizes a stochastic policy with a **clipped surrogate objective**, preventing destructively large updates while still being sample-efficient. The default RL algorithm for [RLHF](rlhf.md) in language models.
 
 ## The clipped objective
 
@@ -31,7 +31,7 @@ $$R(g | p) = \tilde{R}_c(g | p) - \beta \, D_{KL}(\pi_\theta(g|p) \,\|\, \pi_0(g
 
 The **KL penalty** to the SFT model (π_0) is the second guardrail — alongside the PPO clip — preventing reward hacking by keeping the policy close to its starting point.
 
-[[sources/llama2-2023]] PPO settings:
+[sources/llama2-2023](../sources/llama2-2023.md) PPO settings:
 - KL coefficient β = 0.01 (7B/13B), 0.005 (34B/70B)
 - PPO clip ε = 0.2
 - Mini-batch 64, batch 512, 1 grad step per mini-batch
@@ -44,19 +44,19 @@ PPO requires **four model copies** in memory: policy, reference (frozen SFT), re
 
 ## Alternatives
 
-- **[[concepts/rejection-sampling-finetuning|Rejection Sampling fine-tuning]]** (cheaper, no policy gradient — Llama 2 used it for V1–V4)
+- **[Rejection Sampling fine-tuning](rejection-sampling-finetuning.md)** (cheaper, no policy gradient — Llama 2 used it for V1–V4)
 - **DPO** (Rafailov 2023) — closed-form policy update from preferences, no separate RM, no PPO loop
-- **GRPO** (DeepSeek-Math / [[sources/deepseek-r1-2025]]) — group-relative advantage; more stable than PPO for long reasoning chains
+- **GRPO** (DeepSeek-Math; later DeepSeek-R1) — group-relative advantage; more stable than PPO for long reasoning chains
 - **REINFORCE-style baselines** — simpler, occasionally competitive on language tasks
 
 ## Where it's used
 
-- [[sources/llama2-2023]] — V5 only (after rejection-sampling fine-tuning V1–V4)
+- [sources/llama2-2023](../sources/llama2-2023.md) — V5 only (after rejection-sampling fine-tuning V1–V4)
 - InstructGPT — original RLHF + PPO recipe
 - Many open chat models pre-DPO
 
 ## See also
 
-- [[concepts/rlhf]] · [[concepts/reward-modeling]] · [[concepts/rejection-sampling-finetuning]]
+- [concepts/rlhf](rlhf.md) · [concepts/reward-modeling](reward-modeling.md) · [concepts/rejection-sampling-finetuning](rejection-sampling-finetuning.md)
 - TRPO (Schulman 2015) — PPO's predecessor with explicit trust region
 - GRPO — DeepSeek's PPO replacement for reasoning RL

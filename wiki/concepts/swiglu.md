@@ -34,10 +34,10 @@ Because SwiGLU uses two input matrices, a naive (4d → 4d) FFN doubles the para
 
 ## Where it's used
 
-- [[sources/llama1-2023]] adopted it from PaLM
+- [sources/llama1-2023](../sources/llama1-2023.md) adopted it from PaLM
 - All Llama family, Mistral, Mixtral, DeepSeek, Qwen, Gemma, Phi — universal in open LLMs
 
 ## See also
 
-- [[concepts/rmsnorm]] · [[concepts/rope]] · [[concepts/pre-normalization]] — the rest of the LLaMA recipe
+- [concepts/rmsnorm](rmsnorm.md) · [concepts/rope](rope.md) · [concepts/pre-normalization](pre-normalization.md) — the rest of the LLaMA recipe
 - ReLU, GeLU, GLU — the alternatives SwiGLU outperforms

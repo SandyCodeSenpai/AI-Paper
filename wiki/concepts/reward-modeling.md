@@ -25,7 +25,7 @@ $$L = -\log \sigma(r_\theta(x, y_c) - r_\theta(x, y_r) - m(r))$$
 
 where m(r) is larger for "significantly better" annotations, smaller for "negligibly better." Improves accuracy on clearly-separable pairs without hurting accuracy on close calls.
 
-## Key design decisions ([[sources/llama2-2023]])
+## Key design decisions ([sources/llama2-2023](../sources/llama2-2023.md))
 
 - **Init from chat checkpoint, not base.** The RM "knows what the model knows," preventing reward hallucinations where the RM rewards confidently-wrong responses because it can't tell they're wrong.
 - **Two RMs for helpfulness vs safety.** They conflict, and a single RM that's good at both is hard to train. Combined piecewise at PPO time (safety overrides if `IS_SAFETY(prompt)` or `R_safety < threshold`).
@@ -46,11 +46,11 @@ Helpfulness RM 63.2 avg, Safety RM 64.3 avg — both beating GPT-4-as-judge (63.
 
 ## Where it's used
 
-- [[sources/llama2-2023]] — detailed two-RM design and ranking-loss-with-margin
-- All [[concepts/rlhf|RLHF]]-trained models implicitly
+- [sources/llama2-2023](../sources/llama2-2023.md) — detailed two-RM design and ranking-loss-with-margin
+- All [RLHF](rlhf.md)-trained models implicitly
 - DPO / direct-preference-optimization variants *don't* train an explicit RM — they derive policy updates directly from preference data
 
 ## See also
 
-- [[concepts/rlhf]] · [[concepts/ppo]] · [[concepts/rejection-sampling-finetuning]]
+- [concepts/rlhf](rlhf.md) · [concepts/ppo](ppo.md) · [concepts/rejection-sampling-finetuning](rejection-sampling-finetuning.md)
 - DPO (Rafailov 2023) — the RM-free alternative

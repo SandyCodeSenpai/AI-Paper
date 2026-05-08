@@ -26,11 +26,11 @@ Introduced in Zhang & Sennrich 2019.
 
 ## Where it's used
 
-- [[sources/llama1-2023]] introduced it as part of the modern open-weight stack
+- [sources/llama1-2023](../sources/llama1-2023.md) introduced it as part of the modern open-weight stack
 - Adopted by essentially all Llama-family models, Mistral, Mixtral, DeepSeek, Qwen, Gemma, Phi
-- Often paired with [[concepts/pre-normalization]]
+- Often paired with [concepts/pre-normalization](pre-normalization.md)
 
 ## See also
 
-- [[concepts/pre-normalization]] — *where* the norm is applied (input vs. output of sublayer)
+- [concepts/pre-normalization](pre-normalization.md) — *where* the norm is applied (input vs. output of sublayer)
 - LayerNorm (Ba et al. 2016) — what RMSNorm replaces

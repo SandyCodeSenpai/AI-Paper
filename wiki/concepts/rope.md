@@ -26,11 +26,11 @@ When you compute the attention dot product `q_m · k_n`, the rotation cancels in
 
 ## Where it's used
 
-- [[sources/llama1-2023]] — first major open LLM to standardize RoPE
+- [sources/llama1-2023](../sources/llama1-2023.md) — first major open LLM to standardize RoPE
 - All Llama family (Llama 2, 3, 4)
 - Mistral, Mixtral, DeepSeek-V2/V3, Qwen, Gemma, Phi, OLMo, Kimi K2 — essentially all post-2023 open LLMs
 
 ## See also
 
-- [[concepts/pre-normalization]] · [[concepts/rmsnorm]] · [[concepts/swiglu]] — the rest of the modern open-LLM stack
+- [concepts/pre-normalization](pre-normalization.md) · [concepts/rmsnorm](rmsnorm.md) · [concepts/swiglu](swiglu.md) — the rest of the modern open-LLM stack
 - Sinusoidal positional encodings (Vaswani 2017) — the predecessor RoPE replaces

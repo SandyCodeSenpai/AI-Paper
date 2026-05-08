@@ -20,12 +20,12 @@ The empirical rule of thumb that came out of this: **~20 tokens per parameter** 
 
 ## How LLaMA pushed past it
 
-[[sources/llama1-2023]] argued that Chinchilla optimizes the wrong objective for *production*: training compute is one-shot, but **inference** compute is paid forever per query. So they trained models *past* Chinchilla-optimal — LLaMA-7B on 1T tokens (≈140 tokens/param), well beyond the 20-tokens-per-param rule, because the resulting model is much cheaper to serve.
+[sources/llama1-2023](../sources/llama1-2023.md) argued that Chinchilla optimizes the wrong objective for *production*: training compute is one-shot, but **inference** compute is paid forever per query. So they trained models *past* Chinchilla-optimal — LLaMA-7B on 1T tokens (≈140 tokens/param), well beyond the 20-tokens-per-param rule, because the resulting model is much cheaper to serve.
 
 This reframing — inference-optimal vs. compute-optimal — became standard practice. Modern small-but-strong models (Mistral 7B, Phi-3, Gemma 2) lean even harder into it.
 
 ## See also
 
-- [[sources/llama1-2023]] — first paper to push past Chinchilla-optimal in service of openness + inference cost
+- [sources/llama1-2023](../sources/llama1-2023.md) — first paper to push past Chinchilla-optimal in service of openness + inference cost
 - Kaplan et al. 2020 — the earlier scaling law Chinchilla refined
 - Phi-3 — extends the data-quality dimension of the same argument

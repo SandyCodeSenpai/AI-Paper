@@ -9,7 +9,7 @@ aliases: [GAtt, Ghost Attention]
 
 ## What it is
 
-A training-data trick (no architectural change) introduced in [[sources/llama2-2023]] §3.3 to fix multi-turn instruction forgetting.
+A training-data trick (no architectural change) introduced in [sources/llama2-2023](../sources/llama2-2023.md) §3.3 to fix multi-turn instruction forgetting.
 
 **Problem:** In a dialogue with a system instruction like "always answer with emojis," the chat model obeys at turn 1 but forgets by turn 3 — the instruction is far away in the context, and the model's attention drifts to the immediate user message.
 
@@ -37,10 +37,10 @@ By design, the model can only get the loss right on `aₙ` if attention to the s
 
 ## Where it's used
 
-- [[sources/llama2-2023]] — the introducing paper
+- [sources/llama2-2023](../sources/llama2-2023.md) — the introducing paper
 - Subsequent open-chat training pipelines have largely adopted it or close variants
 
 ## See also
 
-- [[concepts/sft]] · [[concepts/rejection-sampling-finetuning]] — the surrounding pipeline
+- [concepts/sft](sft.md) · [concepts/rejection-sampling-finetuning](rejection-sampling-finetuning.md) — the surrounding pipeline
 - Context Distillation (Askell 2021) — another "preprompt as training data" technique

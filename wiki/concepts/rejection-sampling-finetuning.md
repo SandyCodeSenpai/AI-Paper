@@ -9,10 +9,10 @@ aliases: [Rejection Sampling, RSFT, Best-of-N fine-tuning]
 
 ## What it is
 
-A simpler alternative to [[concepts/ppo|PPO]] for RL fine-tuning. Procedure:
+A simpler alternative to [PPO](ppo.md) for RL fine-tuning. Procedure:
 
 1. For each prompt in your training set, **sample K candidate generations** from the current policy (different temperatures, different seeds).
-2. Score each candidate with a [[concepts/reward-modeling|reward model]].
+2. Score each candidate with a [reward model](reward-modeling.md).
 3. **Keep only the top-scoring candidate** per prompt.
 4. **Fine-tune the model on those top samples** with a standard SFT objective.
 
@@ -24,9 +24,9 @@ That's it. No policy gradient, no KL penalty, no value head. The exploration hap
 - The reward model picks the best of K — implicitly enforcing the preference.
 - Fine-tuning on those top samples shifts the policy toward higher-reward regions without the instability of policy gradients.
 
-The delta between `max-of-K reward` and `median-of-K reward` ([[sources/llama2-2023]] Figure 7) is the available improvement headroom — and it grows with K.
+The delta between `max-of-K reward` and `median-of-K reward` ([sources/llama2-2023](../sources/llama2-2023.md) Figure 7) is the available improvement headroom — and it grows with K.
 
-## Used in [[sources/llama2-2023]]
+## Used in [sources/llama2-2023](../sources/llama2-2023.md)
 
 - **RLHF V1–V4** trained entirely with rejection sampling — no PPO until V5.
 - They sample many candidates from the largest model (70B), select with reward models, then fine-tune *all* sizes on those samples — so smaller models get **distilled** from the largest model's RM-curated outputs.
@@ -52,12 +52,12 @@ Llama 2's mixed approach — RSFT for V1–V4, RSFT+PPO for V5 — exploits both
 
 ## Where it's used
 
-- [[sources/llama2-2023]] — extensively documented, V1–V4
+- [sources/llama2-2023](../sources/llama2-2023.md) — extensively documented, V1–V4
 - Anthropic Claude post-training (described in Bai 2022)
 - Many open chat-tune efforts that want RLHF benefits without PPO complexity
 - DeepSeek-V3 and Kimi K2 use RSFT-style stages in their pipelines
 
 ## See also
 
-- [[concepts/rlhf]] · [[concepts/ppo]] · [[concepts/reward-modeling]]
+- [concepts/rlhf](rlhf.md) · [concepts/ppo](ppo.md) · [concepts/reward-modeling](reward-modeling.md)
 - DPO — RM-free alternative; collapses the RM and the policy update into one loss

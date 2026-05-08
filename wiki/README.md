@@ -18,12 +18,12 @@ A research wiki tracking the lineage of modern open-weight large language models
 
 ## Where to start
 
-- [[index]] — the full index of sources, concepts, threads, people
-- [[sources/llama1-2023]] — start here for the foundational open-weight architecture
+- [index](index.md) — the full index of sources, concepts, threads, people
+- [sources/llama1-2023](sources/llama1-2023.md) — start here for the foundational open-weight architecture
 
 ## Conventions
 
-- Every internal navigation uses `[[wikilinks]]` (Obsidian-style).
+- Internal navigation uses **standard relative markdown links** (e.g. `[concepts/rope](concepts/rope.md)`). These render correctly in both Obsidian and GitHub.
 - Sources are slugged `name-year` (e.g. `llama1-2023`, `deepseek-v3-2024`).
 - All claims are faithful to source material; no fabricated numbers or citations.
 - Math is rendered with LaTeX *and* explained in words.

@@ -34,10 +34,10 @@ The tradeoff is a small quality cost vs. a well-tuned post-LN, but the training 
 ## Where it's used
 
 - Originally popularized by GPT-2 / GPT-3
-- [[sources/llama1-2023]] adopted it as part of the standard recipe (paired with [[concepts/rmsnorm]])
+- [sources/llama1-2023](../sources/llama1-2023.md) adopted it as part of the standard recipe (paired with [concepts/rmsnorm](rmsnorm.md))
 - Universal in modern open LLMs
 
 ## See also
 
-- [[concepts/rmsnorm]] — *what* normalization is applied
+- [concepts/rmsnorm](rmsnorm.md) — *what* normalization is applied
 - "On Layer Normalization in the Transformer Architecture" (Xiong et al., 2020) — the analysis paper

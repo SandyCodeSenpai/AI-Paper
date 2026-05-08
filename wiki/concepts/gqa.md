@@ -18,7 +18,7 @@ GQA  : n_heads Q projections,  n_kv_heads K/V projections       (compromise)
        where n_kv_heads divides n_heads, group_size = n_heads / n_kv_heads
 ```
 
-Introduced in Ainslie et al. 2023; adopted at scale by [[sources/llama2-2023]] for the 34B and 70B models.
+Introduced in Ainslie et al. 2023; adopted at scale by [sources/llama2-2023](../sources/llama2-2023.md) for the 34B and 70B models.
 
 ## Why it matters
 
@@ -34,13 +34,13 @@ Shrinking n_kv_heads removes parameters from the attention block. To keep total 
 
 ## Where it's used
 
-- [[sources/llama2-2023]] — first major open release with GQA at scale (34B, 70B with 8 KV heads)
+- [sources/llama2-2023](../sources/llama2-2023.md) — first major open release with GQA at scale (34B, 70B with 8 KV heads)
 - All Llama 3 / Llama 4 models
 - Mistral 7B, Mixtral, DeepSeek-V2/V3, Qwen 2/2.5/3, Gemma 2
 - Default setting in the modern open-LLM stack
 
 ## See also
 
-- [[concepts/rope]] · [[concepts/swiglu]] · [[concepts/rmsnorm]] — the rest of the LLaMA-recipe stack
+- [concepts/rope](rope.md) · [concepts/swiglu](swiglu.md) · [concepts/rmsnorm](rmsnorm.md) — the rest of the LLaMA-recipe stack
 - MQA (Shazeer 2019) — the predecessor GQA improves on
 - FlashAttention / PagedAttention — orthogonal optimizations that further reduce KV-cache pain
